@@ -14,6 +14,7 @@
 		ED17FFC11DDDCB0C0016486D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED17FFBF1DDDCB0C0016486D /* LaunchScreen.storyboard */; };
 		ED17FFCC1DDDCB0C0016486D /* movielist2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED17FFCB1DDDCB0C0016486D /* movielist2Tests.swift */; };
 		ED17FFD71DDDCB0C0016486D /* movielist2UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED17FFD61DDDCB0C0016486D /* movielist2UITests.swift */; };
+		ED17FFE51DDDCEEF0016486D /* MovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED17FFE41DDDCEEF0016486D /* MovieCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		ED17FFD21DDDCB0C0016486D /* movielist2UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = movielist2UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED17FFD61DDDCB0C0016486D /* movielist2UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = movielist2UITests.swift; sourceTree = "<group>"; };
 		ED17FFD81DDDCB0C0016486D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ED17FFE41DDDCEEF0016486D /* MovieCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +102,7 @@
 				ED17FFB61DDDCB0C0016486D /* AppDelegate.swift */,
 				ED17FFB81DDDCB0C0016486D /* ViewController.swift */,
 				ED17FFBA1DDDCB0C0016486D /* Main.storyboard */,
+				ED17FFE41DDDCEEF0016486D /* MovieCell.swift */,
 				ED17FFBD1DDDCB0C0016486D /* Assets.xcassets */,
 				ED17FFBF1DDDCB0C0016486D /* LaunchScreen.storyboard */,
 				ED17FFC21DDDCB0C0016486D /* Info.plist */,
@@ -261,6 +264,7 @@
 			files = (
 				ED17FFB91DDDCB0C0016486D /* ViewController.swift in Sources */,
 				ED17FFB71DDDCB0C0016486D /* AppDelegate.swift in Sources */,
+				ED17FFE51DDDCEEF0016486D /* MovieCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
