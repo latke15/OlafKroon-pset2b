@@ -12,20 +12,31 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     let defaults = UserDefaults.standard
     
+    
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchMovie: UITextField!
     @IBOutlet weak var enterMovie: UIButton!
-    var counter = Int()
+
+
     
+
     var titles: [String] = []
     var data = [String: String]()
     var showRating = [String: String]()
     var showImage = [String: String]()
     var showPlot = [String: String]()
     var checkTitle = String()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        print ("LOADED")
+        titles = defaults.object(forKey:"titles") as? [String] ?? [String]()
+        data = defaults.object(forKey: "data") as? [String: String] ?? [String: String]()
+        showImage = defaults.object(forKey: "showImage") as? [String: String] ?? [String: String]()
+        showRating = defaults.object(forKey: "showRating") as! [String : String]
+        showPlot = defaults.object(forKey: "showPlot") as! [String : String]
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -37,6 +48,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         checkTitle = titles[indexPath.row]
         print(checkTitle)
+        print("IS NIL?",self.showPlot )
         self.performSegue(withIdentifier: "nextView", sender: nil)
         
     }
@@ -141,6 +153,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                 
                 // Parse the data into a json
                 let json = try! JSONSerialization.jsonObject(with: data, options: [])
+                print(json)
                 
                 // Put the json into a dictionary
                 self.data = json as! [String : String]
@@ -157,12 +170,23 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                 self.showImage[self.data["Title"]!] = self.data["Poster"]
                     
                 self.showPlot[self.data["Title"]!] = self.data["Plot"]
+                
                     
                 self.tableView.reloadData()
+                 
+                // update defaults
+                self.defaults.set(self.titles, forKey: "titles")
+                self.defaults.set(data, forKey: "data")
+                self.defaults.set(self.showRating, forKey: "showRating")
+                self.defaults.set(self.showImage, forKey: "showImage")
+                self.defaults.set(self.showPlot, forKey: "showPlot")
+                    
+                    print("ZIT HIER IETS IN", self.defaults.object(forKey: "showRating")!)
                 
                 }
             }
         task.resume()
+        
         self.loadView()
         }
     }
