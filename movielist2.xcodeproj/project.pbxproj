@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		ED00D5B51DDEFA7F008BEEC1 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED00D5B41DDEFA7F008BEEC1 /* SecondViewController.swift */; };
 		ED17FFB71DDDCB0C0016486D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED17FFB61DDDCB0C0016486D /* AppDelegate.swift */; };
 		ED17FFB91DDDCB0C0016486D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED17FFB81DDDCB0C0016486D /* ViewController.swift */; };
 		ED17FFBC1DDDCB0C0016486D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED17FFBA1DDDCB0C0016486D /* Main.storyboard */; };
@@ -35,6 +36,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		ED00D5B41DDEFA7F008BEEC1 /* SecondViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SecondViewController.swift; path = ../SecondViewController.swift; sourceTree = "<group>"; };
 		ED17FFB31DDDCB0C0016486D /* movielist2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = movielist2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED17FFB61DDDCB0C0016486D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ED17FFB81DDDCB0C0016486D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -99,6 +101,7 @@
 		ED17FFB51DDDCB0C0016486D /* movielist2 */ = {
 			isa = PBXGroup;
 			children = (
+				ED00D5B41DDEFA7F008BEEC1 /* SecondViewController.swift */,
 				ED17FFB61DDDCB0C0016486D /* AppDelegate.swift */,
 				ED17FFB81DDDCB0C0016486D /* ViewController.swift */,
 				ED17FFBA1DDDCB0C0016486D /* Main.storyboard */,
@@ -262,6 +265,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ED00D5B51DDEFA7F008BEEC1 /* SecondViewController.swift in Sources */,
 				ED17FFB91DDDCB0C0016486D /* ViewController.swift in Sources */,
 				ED17FFB71DDDCB0C0016486D /* AppDelegate.swift in Sources */,
 				ED17FFE51DDDCEEF0016486D /* MovieCell.swift in Sources */,
@@ -509,6 +513,7 @@
 				ED17FFDD1DDDCB0C0016486D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		ED17FFDE1DDDCB0C0016486D /* Build configuration list for PBXNativeTarget "movielist2Tests" */ = {
 			isa = XCConfigurationList;
@@ -517,6 +522,7 @@
 				ED17FFE01DDDCB0C0016486D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		ED17FFE11DDDCB0C0016486D /* Build configuration list for PBXNativeTarget "movielist2UITests" */ = {
 			isa = XCConfigurationList;
@@ -525,6 +531,7 @@
 				ED17FFE31DDDCB0C0016486D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
