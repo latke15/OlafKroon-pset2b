@@ -4,6 +4,7 @@
 //
 //  Created by Olaf Kroon on 18/11/16.
 //  Copyright © 2016 Olaf Kroon. All rights reserved.
+// Displays the discription of a movie. 
 //
 
 import UIKit

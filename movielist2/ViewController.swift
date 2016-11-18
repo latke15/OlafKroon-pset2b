@@ -4,6 +4,7 @@
 //
 //  Created by Olaf Kroon on 17/11/16.
 //  Copyright © 2016 Olaf Kroon. All rights reserved.
+// A app that creates a movielist. 
 //
 
 import UIKit
@@ -17,9 +18,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     @IBOutlet weak var searchMovie: UITextField!
     @IBOutlet weak var enterMovie: UIButton!
 
-
-    
-
     var titles: [String] = []
     var data = [String: String]()
     var showRating = [String: String]()
@@ -31,6 +29,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         super.viewDidLoad()
         
         print ("LOADED")
+        // Read the data in the Userdefault into variables.
         titles = defaults.object(forKey:"titles") as? [String] ?? [String]()
         data = defaults.object(forKey: "data") as? [String: String] ?? [String: String]()
         showImage = defaults.object(forKey: "showImage") as? [String: String] ?? [String: String]()
@@ -80,7 +79,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         return titles.count
     }
     
-    //  Updata the rows in tableview.
+    //  Update the rows in tableview.
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! MovieCell
         
@@ -113,7 +112,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         }
     }
         
-        // Put an image in the image view of every cell
+        // Put an image in the image view of every cell.
         if let image = showImage[titles[indexPath.row]] {
             if let checkedUrl = URL(string: image) {
                 cell.poster.contentMode = .scaleAspectFit
@@ -135,7 +134,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 
             
             // Get a json from an URL source: http://stackoverflow.com/questions/38292793/http-requests-in-swift-3
-            
             let url = URL(string: searchRequest)
             let task = URLSession.shared.dataTask(with: url!) { data, response, error in
                 guard error == nil else {
@@ -147,42 +145,47 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                     return
                 }
                 
-                // Get status code
+                // Get status code.
                 let httpResponse = response as! HTTPURLResponse
                 print("STATUSCODE: ", httpResponse.statusCode)
-                
-                // Parse the data into a json
+        
+
+                // Parse the data into a json.
                 let json = try! JSONSerialization.jsonObject(with: data, options: [])
-                print(json)
                 
-                // Put the json into a dictionary
+                // Put the json into a dictionary.
                 self.data = json as! [String : String]
+                print(self.data)
+                
+                if self.data["Response"] == "False" {
+                    print("MOVIE NOT FOUND")
+                }
 
                 
-                //Add an item to titles array
+                //Add an item to titles array.
                 if self.data["Title"] != nil {
                 self.titles.append(self.data["Title"]!)
                 
-                // add a rating to the showRating dictionary with Title as key
+                // add a rating to the showRating dictionary with Title as key.
                 self.showRating[self.data["Title"]!] = self.data["imdbRating"]
                 
-                //add a image url to the showImage dictionary with Title as key
+                //add a image url to the showImage dictionary with Title as key.
                 self.showImage[self.data["Title"]!] = self.data["Poster"]
                     
+                    
+                // Add a Plot tot the showPlot dictionary with Title as key.
                 self.showPlot[self.data["Title"]!] = self.data["Plot"]
                 
                     
                 self.tableView.reloadData()
                  
-                // update defaults
+                // Update defaults.
                 self.defaults.set(self.titles, forKey: "titles")
                 self.defaults.set(data, forKey: "data")
                 self.defaults.set(self.showRating, forKey: "showRating")
                 self.defaults.set(self.showImage, forKey: "showImage")
                 self.defaults.set(self.showPlot, forKey: "showPlot")
                     
-                    print("ZIT HIER IETS IN", self.defaults.object(forKey: "showRating")!)
-                
                 }
             }
         task.resume()
